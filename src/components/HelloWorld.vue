@@ -6,10 +6,10 @@
     <br>
     <button class="add" v-on:click="add">Отправить</button>
     <ul>
-      <li v-for="item in mas" :key="item">
+      <li v-for="(item, idx) in mas" :key="item">
           {{ item }}
           <div>
-            <button class="delete" v-on:click="del">X</button>
+            <button class="delete" v-on:click="del(idx)">X</button>
           </div>
       </li>
   </ul>
@@ -29,8 +29,8 @@ methods: {
       add: function(){
     this.mas.push( this.mess );
       },
-       del: function(){
-    alert('del');
+       del: function(index){
+         this.mas.splice(index,1);
       }
 }
 }
