@@ -1,16 +1,15 @@
 <template>
   <div>
-    <HelloWorld />
+    <Video />
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
+import Video from './components/Video.vue'
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    Video
   }
 }
 </script>

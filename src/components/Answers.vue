@@ -1,9 +1,6 @@
 <template>
-  <div class="hello">
-    <input type="file">
-    <br>
-    <input type="time" v-model="mess">
-    <br>
+  <div>
+    <input type="text" v-model="mess">
     <button class="add" v-on:click="add">Отправить</button>
     <ul>
       <li v-for="(item, idx) in mas" :key="item">
@@ -18,22 +15,28 @@
 
 <script>
 export default {
-  name: 'HelloWorld',
+  name: 'Answers',
+  props: [
+    "addAnswer", "idx"
+  ],
   data: function(){
       return {
-          mess: '',
-          mas: []
+          mas: [],
+          mess: ''
       }
   },
 methods: {
       add: function(){
-    this.mas.push( this.mess );
+        this.addAnswer(this.idx, this.mess)
+    this.mas.push(this.mess);
       },
        del: function(index){
          this.mas.splice(index,1);
       }
+
 }
 }
+
 </script>
 
 <style scoped>
