@@ -21,7 +21,7 @@
 
 <script>
 import Answers from './Answers.vue'
-
+import firebase from "firebase";
 
 export default {
   name: 'Video',
@@ -46,6 +46,18 @@ methods: {
       },
       send: function(){
         console.log(this.mas);
+        //------
+        let db = firebase.firestore();
+         db.collection("feedback")
+        .add({
+          name: 123
+        })
+        .then(function() {
+          console.log('OK');
+        })
+        .catch(function() {
+          console.log('NOT OK');
+        });
       }
 }
 }
