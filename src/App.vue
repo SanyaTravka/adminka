@@ -1,16 +1,12 @@
 <template>
   <div>
-    <Video />
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
-import Video from './components/Video.vue'
 export default {
-  name: 'App',
-  components: {
-    Video
-  }
+  name: 'App'
 }
 </script>
 

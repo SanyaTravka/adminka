@@ -50,13 +50,15 @@ methods: {
         let db = firebase.firestore();
          db.collection("feedback")
         .add({
-          name: 123
+          name: this.mas
         })
         .then(function() {
           console.log('OK');
+          alert('OK');
         })
         .catch(function() {
           console.log('NOT OK');
+          alert('NOT OK');
         });
       }
 }
