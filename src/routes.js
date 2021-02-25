@@ -1,11 +1,13 @@
 import Vue from "vue";
 import Router from "vue-router";
+const Register = () =>
+    import ("./components/Register");
 const Login = () =>
     import ("./components/login");
-
-
 const Main = () =>
-    import ("./components/Video");
+    import ("./components/Main");
+const ForgetPassword = () =>
+    import ("./components/ForgetPassword");
 
 Vue.use(Router);
 
@@ -21,6 +23,16 @@ const router = new Router({
             path: "/login",
             name: "Login",
             component: Login,
+        },
+        {
+            path: "/register",
+            name: "Register",
+            component: Register,
+        },
+        {
+            path: "/forgetPassword",
+            name: "ForgetPassword",
+            component: ForgetPassword,
         }
     ],
 });
