@@ -3,11 +3,10 @@
     <div class="feedback">
       <div class="container">
         <h2 class="section-title">Забыли пароль?</h2>
-        <div v-if="error" class="alert alert-danger">{{ error }}</div>
-        <form class="feedback-form">
+        <form class="feedback-form" action="#" @submit.prevent="resetPassword">
           <div class="feedback-form-group">
             <label for="fullname">Электронная почта:</label>
-            <input type="email" name="email" id="email"/>
+            <input type="email" name="email"  v-model="form.email" id="email"/>
           </div>
           <div style="text-align:center">
             <input type="submit" class="btn" value="Отправить" />
@@ -24,14 +23,33 @@
     </div>
   </div>
 </template>
+
 <script>
-
-
+import firebase from "firebase";
 export default {
-  name: 'Register',
-
+  data() {
+    return {
+      form: {
+        email: ""
+      }
+    }
+  },
+  methods: {
+    resetPassword() {
+      firebase
+        .auth()
+        .sendPasswordResetEmail(this.form.email)
+        .then(function() {
+          console.log('then');
+        })
+        .catch(function() {
+          console.log('catch');
+        });
+    }
+  
+  
   }
-
+};
 </script>
 
 <style scoped>
