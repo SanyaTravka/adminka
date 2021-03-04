@@ -54,8 +54,9 @@ export default {
         firebase
         .auth()
         .signInWithEmailAndPassword(this.form.email, this.form.password)
-        .then(() => {
-          console.log("Вы приняты");
+        .then((data) => {
+          console.log(data);
+          window.localStorage.setItem('user', data.user.email);
           this.$router.replace({ name: "Main" });
         })
         .catch(function() {

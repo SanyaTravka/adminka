@@ -8,6 +8,8 @@ const Main = () =>
     import ("./components/Main");
 const ForgetPassword = () =>
     import ("./components/ForgetPassword");
+const Logout = () =>
+    import ("./components/logout");
 
 Vue.use(Router);
 
@@ -33,6 +35,11 @@ const router = new Router({
             path: "/forgetPassword",
             name: "ForgetPassword",
             component: ForgetPassword,
+        },
+        {
+            path: "/logout",
+            name: "Logout",
+            component: Logout,
         }
     ],
 });

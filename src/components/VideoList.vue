@@ -19,8 +19,13 @@ export default {
       }
   },
   created: function () {
+    const user = window.localStorage.getItem('user') 
+    console.log(user)
+    if (user === null){
+      this.$router.replace({ name: "Login" });
+    }
      let db = firebase.firestore();
-    db.collection("feedback").get().then((querySnapshot) => {
+    db.collection(user).get().then((querySnapshot) => {
         querySnapshot.forEach((doc) => {
         console.log(this.mas, " => ", doc.data());
         this.mas.push(doc.data());

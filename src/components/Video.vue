@@ -45,10 +45,11 @@ methods: {
         this.mas[question].answers.push(value)
       },
       send: function(){
-        console.log(this.mas);
+            const user = window.localStorage.getItem('user') 
+            console.log(user)
         //------
         let db = firebase.firestore();
-         db.collection("feedback")
+         db.collection(user)
         .add({
           name: this.mas
         })

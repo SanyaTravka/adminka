@@ -56,9 +56,23 @@ export default {
         firebase
         .auth()
         .createUserWithEmailAndPassword(this.form.email, this.form.password)
-        .then(() => {})
+        .then(data => {
+          data.user
+            .updateProfile({
+              displayName: this.form.name
+            })
+            .then(() => {})
+            .catch(() => {alert('Не получилось зарегестрироваться. Попробуйте ещё раз.')});
+          data.user.sendEmailVerification().then(function() {
+            firebase
+              .auth()
+              .signOut()
+              .then(() => {});
+          });
+        })
     }
- },
+    
+ }
 }
 
 </script>
