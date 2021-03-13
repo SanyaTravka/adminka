@@ -7,7 +7,7 @@
           <form class="feedback-form" action="#" @submit.prevent="submit">
             <div class="feedback-form-group">
               <label for="fullname">Электронная почта:</label>
-              <input type="email" name="email" id="email"  v-model="form.email" required autofocus />
+              <input type="email" name="email" id="email" class="form-control"  v-model="form.email" required autofocus />
             </div>
             <div class="feedback-form-group">
               <label for="fullname">Пароль:</label>
